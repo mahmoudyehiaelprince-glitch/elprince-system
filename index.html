@@ -338,6 +338,25 @@
             break-inside: avoid !important;
         }
     </style>
+    <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA3eCJSsWQV3t3OC-8ILiN2qn9ZkVJI4js",
+    authDomain: "elprince-system.firebaseapp.com",
+    projectId: "elprince-system",
+    storageBucket: "elprince-system.firebasestorage.app",
+    messagingSenderId: "312073694616",
+    appId: "1:312073694616:web:f468f83f675ad3e3a1cfed"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  window.db = db;
+</script>
+
 </head>
 <body class="min-h-screen flex flex-col antialiased">
 
