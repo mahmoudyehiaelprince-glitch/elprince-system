@@ -2157,19 +2157,21 @@
             }
         };
 
-        function saveToLocalStorage() {
-            localStorage.setItem('prince_inventory_v3', JSON.stringify(inventory));
-            localStorage.setItem('prince_factory_v3', JSON.stringify(factoryOrders));
-            localStorage.setItem('prince_factory_permits_v1', JSON.stringify(factoryPermits));
-            localStorage.setItem('prince_customers_v3', JSON.stringify(customerOrders));
-            localStorage.setItem('prince_expenses_v3', JSON.stringify(expensesList));
-            localStorage.setItem('prince_restock_receipts_v1', JSON.stringify(restockReceipts));
-            localStorage.setItem('prince_accounting_entries_v1', JSON.stringify(accountingEntries));
-            localStorage.setItem('prince_suppliers_v1', JSON.stringify(suppliers));
-            localStorage.setItem('prince_factories_v1', JSON.stringify(factories));
-            localStorage.setItem('prince_sales_v3', totalSalesSum.toString());
-            localStorage.setItem('prince_cost_v3', totalCostSum.toString());
-            localStorage.setItem('prince_app_settings_v1', JSON.stringify(appSettings));
+     async function saveToLocalStorage() {
+           await setDoc(doc(db, "system", "main"), {
+  inventory,
+  factoryOrders,
+  factoryPermits,
+  customerOrders,
+  expensesList,
+  restockReceipts,
+  accountingEntries,
+  suppliers,
+  factories,
+  totalSalesSum,
+  totalCostSum,
+  appSettings
+});
         }
 
         function updateInvoiceID() {
